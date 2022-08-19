@@ -1,8 +1,8 @@
 From 410d1a3c43f4628aec080b26f2963c3bf08a847a Mon Sep 17 00:00:00 2001
 From: Yuan Si <do4suki@gmail.com>
 Date: Sat, 13 Aug 2022 16:22:34 +0800
-Subject: [PATCH] Revert "Revert "power: Add support for tap-to-wake feature
- control""
+Subject: [PATCH 1/2] Revert "Revert "power: Add support for tap-to-wake
+ feature control""
 
 This reverts commit 933a6b19eb50d30f0b5f043a37eefdb3af3db61f.
 

@@ -1,0 +1,59 @@
+From f2c1cab0beec39b936ceabb7efee1a9abd65f952 Mon Sep 17 00:00:00 2001
+From: Jiyong Park <jiyong@google.com>
+Date: Wed, 4 Aug 2021 12:48:07 +0900
+Subject: [PATCH 3/3] Remove ndk_platform backend. Use the ndk backend.
+
+The ndk_platform backend will soon be deprecated because the ndk backend
+can serve the same purpose. This is to eliminate the confusion about
+having two variants (ndk and ndk_platform) for the same ndk backend.
+
+Bug: 161456198
+Test: m
+Change-Id: I14a1c57bd06f1f2aa52491f779c7030d4de03547
+---
+ aidl/Android.bp | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/aidl/Android.bp b/aidl/Android.bp
+index 4309717..c637546 100644
+--- a/aidl/Android.bp
++++ b/aidl/Android.bp
+@@ -15,7 +15,7 @@ cc_library_shared {
+         "liblog",
+         "libqtivibratoreffect",
+         "libbinder_ndk",
+-        "android.hardware.vibrator-V1-ndk_platform",
++        "android.hardware.vibrator-V1-ndk",
+     ],
+     include_dirs: ["system/libbase/include"],
+     export_include_dirs: ["include"]
+@@ -38,7 +38,7 @@ cc_binary {
+         "libutils",
+         "libbase",
+         "libbinder_ndk",
+-        "android.hardware.vibrator-V1-ndk_platform",
++        "android.hardware.vibrator-V1-ndk",
+         "vendor.qti.hardware.vibrator.impl",
+     ],
+ }
+@@ -58,7 +58,7 @@ cc_library_shared {
+         "libqtivibratoreffect",
+         "libqtivibratoreffectoffload",
+         "libbinder_ndk",
+-        "android.hardware.vibrator-V1-ndk_platform",
++        "android.hardware.vibrator-V1-ndk",
+     ],
+     export_include_dirs: ["include"],
+     header_libs: ["qti_kernel_headers"],
+@@ -81,7 +81,7 @@ cc_binary {
+         "libutils",
+         "libbase",
+         "libbinder_ndk",
+-        "android.hardware.vibrator-V1-ndk_platform",
++        "android.hardware.vibrator-V1-ndk",
+         "vendor.qti.hardware.vibrator.offload.impl",
+     ],
+ }
+-- 
+2.37.2
+

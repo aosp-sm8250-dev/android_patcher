@@ -1,7 +1,7 @@
 From a900b9b1214744223addaaddf6219f5a31b4c2f3 Mon Sep 17 00:00:00 2001
 From: Vishalcj17 <vishalcj@aospa.co>
 Date: Mon, 18 Oct 2021 13:43:28 +0900
-Subject: [PATCH 2/2] vibrator: Define AIDL library version
+Subject: [PATCH 2/3] vibrator: Define AIDL library version
 
 Change-Id: I7f9534809da68d93946d64c1a7b780c95b750e29
 ---
