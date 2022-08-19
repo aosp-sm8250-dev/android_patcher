@@ -1,0 +1,27 @@
+From 08b1cb29eab468d9fc2bdbb4049154bd6867196e Mon Sep 17 00:00:00 2001
+From: LuK1337 <priv.luk@gmail.com>
+Date: Fri, 13 Nov 2020 15:11:27 +0100
+Subject: [PATCH 4/9] cleanbuild: Add `install` to installclean files
+
+Change-Id: Ib46d9638a2b3648d5e2ade1dfa864bc4e2ae695c
+---
+ ui/build/cleanbuild.go | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/ui/build/cleanbuild.go b/ui/build/cleanbuild.go
+index 1c80cff31..65e2731f1 100644
+--- a/ui/build/cleanbuild.go
++++ b/ui/build/cleanbuild.go
+@@ -187,7 +187,8 @@ func installClean(ctx Context, config Config) {
+ 		productOut("odm_dlkm"),
+ 		productOut("sysloader"),
+ 		productOut("testcases"),
+-		productOut("symbols"))
++		productOut("symbols"),
++		productOut("install"))
+ }
+ 
+ // Since products and build variants (unfortunately) shared the same
+-- 
+2.37.2
+

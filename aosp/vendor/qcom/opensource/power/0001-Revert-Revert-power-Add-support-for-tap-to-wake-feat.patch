@@ -1,0 +1,69 @@
+From 410d1a3c43f4628aec080b26f2963c3bf08a847a Mon Sep 17 00:00:00 2001
+From: Yuan Si <do4suki@gmail.com>
+Date: Sat, 13 Aug 2022 16:22:34 +0800
+Subject: [PATCH] Revert "Revert "power: Add support for tap-to-wake feature
+ control""
+
+This reverts commit 933a6b19eb50d30f0b5f043a37eefdb3af3db61f.
+
+Signed-off-by: Yuan Si <do4suki@gmail.com>
+Change-Id: I63d0621bf952cb07ffbcebfe908c4fc421fca437
+---
+ Android.mk |  4 ++++
+ Power.cpp  | 10 ++++++++++
+ 2 files changed, 14 insertions(+)
+
+diff --git a/Android.mk b/Android.mk
+index 68bc0e0..9fa1830 100644
+--- a/Android.mk
++++ b/Android.mk
+@@ -77,6 +77,10 @@ ifeq ($(call is-board-platform-in-list,msmnile), true)
+ LOCAL_SRC_FILES += power-msmnile.c
+ endif
+ 
++ifneq ($(TARGET_TAP_TO_WAKE_NODE),)
++    LOCAL_CFLAGS += -DTAP_TO_WAKE_NODE=\"$(TARGET_TAP_TO_WAKE_NODE)\"
++endif
++
+ ifeq ($(TARGET_USES_INTERACTION_BOOST),true)
+     LOCAL_CFLAGS += -DINTERACTION_BOOST
+ endif
+diff --git a/Power.cpp b/Power.cpp
+index 300e8e1..734246b 100644
+--- a/Power.cpp
++++ b/Power.cpp
+@@ -31,6 +31,7 @@
+ 
+ #include "Power.h"
+ 
++#include <android-base/file.h>
+ #include <android-base/logging.h>
+ 
+ #include <aidl/android/hardware/power/BnPower.h>
+@@ -72,7 +73,13 @@ ndk::ScopedAStatus Power::setMode(Mode type, bool enabled) {
+ #endif
+ 
+     switch(type){
++#ifdef TAP_TO_WAKE_NODE
+         case Mode::DOUBLE_TAP_TO_WAKE:
++            ::android::base::WriteStringToFile(enabled ? "1" : "0", TAP_TO_WAKE_NODE, true);
++            break;
++#else
++        case Mode::DOUBLE_TAP_TO_WAKE:
++#endif
+         case Mode::LOW_POWER:
+         case Mode::LAUNCH:
+         case Mode::EXPENSIVE_RENDERING:
+@@ -111,6 +118,9 @@ ndk::ScopedAStatus Power::isModeSupported(Mode type, bool* _aidl_return) {
+ #endif
+ 
+     switch(type){
++#ifdef TAP_TO_WAKE_NODE
++        case Mode::DOUBLE_TAP_TO_WAKE:
++#endif
+         case Mode::INTERACTIVE:
+         case Mode::SUSTAINED_PERFORMANCE:
+         case Mode::FIXED_PERFORMANCE:
+-- 
+2.37.2
+
