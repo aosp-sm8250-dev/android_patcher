@@ -5,6 +5,8 @@ REPOS=(
     'bionic'
     'bootable/recovery'
     'build/soong'
+    'device/qcom/sepolicy'
+    'device/qcom/sepolicy_vndr'
     'external/tinycompress'
     'frameworks/av'
     'frameworks/native'

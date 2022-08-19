@@ -1,0 +1,28 @@
+From 4d697765d5a776078f8581c85de475075b1504e4 Mon Sep 17 00:00:00 2001
+From: Pig <pig.priv@gmail.com>
+Date: Sat, 19 Sep 2020 09:41:05 +0800
+Subject: [PATCH 1/2] sepolicy_vndr: Remove QCOM guards
+
+Change-Id: I0efd0b96f45ecfa9eec0b98087f0582dcd282798
+---
+ SEPolicy.mk | 2 --
+ 1 file changed, 2 deletions(-)
+
+diff --git a/SEPolicy.mk b/SEPolicy.mk
+index 19b73b4b..3de6ff60 100755
+--- a/SEPolicy.mk
++++ b/SEPolicy.mk
+@@ -1,5 +1,4 @@
+ # Board specific SELinux policy variable definitions
+-ifeq ($(call is-vendor-board-platform,QCOM),true)
+ SEPOLICY_PATH:= device/qcom/sepolicy_vndr
+ QSSI_SEPOLICY_PATH:= device/qcom/sepolicy
+ SYS_ATTR_PROJECT_PATH := $(TOP)/device/qcom/sepolicy/generic/public/attribute
+@@ -76,4 +75,3 @@ ifneq (,$(filter sdm845 sdm710, $(TARGET_BOARD_PLATFORM)))
+       BOARD_SEPOLICY_DIRS += $(SEPOLICY_PATH)/legacy/vendor/test/mst_test_app
+     endif
+ endif
+-endif
+-- 
+2.37.2
+

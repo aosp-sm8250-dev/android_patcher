@@ -1,0 +1,40 @@
+From 76b027b5b1c926df1863723f98fa7ac352850b46 Mon Sep 17 00:00:00 2001
+From: Yuan Si <do4suki@gmail.com>
+Date: Fri, 19 Aug 2022 21:13:10 +0800
+Subject: [PATCH 2/2] sepolicy: Fix neverallows
+
+Signed-off-by: Yuan Si <do4suki@gmail.com>
+Change-Id: I449d7fb04fe2fa68ef0c35111d209413484224c1
+---
+ generic/private/smart_trace.te | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/generic/private/smart_trace.te b/generic/private/smart_trace.te
+index 445d1ed2..00b05186 100644
+--- a/generic/private/smart_trace.te
++++ b/generic/private/smart_trace.te
+@@ -31,8 +31,8 @@ type vendor_perfetto_dump_exec, system_file_type, exec_type, file_type;
+ init_daemon_domain(vendor_perfetto_dump)
+ userdebug_or_eng(`
+   set_prop(vendor_perfetto_dump, system_prop)
+-  allow vendor_perfetto_dump perfetto_traces_data_file:dir rw_dir_perms;
+-  allow vendor_perfetto_dump perfetto_traces_data_file:file { rw_file_perms unlink };
++  #allow vendor_perfetto_dump perfetto_traces_data_file:dir rw_dir_perms;
++  #allow vendor_perfetto_dump perfetto_traces_data_file:file { rw_file_perms unlink };
+   allow vendor_perfetto_dump shell_exec:file { rx_file_perms entrypoint };
+   allow vendor_perfetto_dump toolbox_exec:file rx_file_perms;
+   allow vendor_perfetto_dump perfetto_exec:file rx_file_perms;
+@@ -41,8 +41,8 @@ userdebug_or_eng(`
+   allow vendor_perfetto_dump shell:fifo_file { read write };
+ 
+   # Allow the service to create new files within /data/misc/perfetto-traces.
+-  allow vendor_perfetto_dump perfetto_traces_data_file:file create_file_perms;
+-  allow vendor_perfetto_dump perfetto_traces_data_file:dir rw_dir_perms;
++  #allow vendor_perfetto_dump perfetto_traces_data_file:file create_file_perms;
++  #allow vendor_perfetto_dump perfetto_traces_data_file:dir rw_dir_perms;
+   allow traced vendor_perfetto_dump:fd use;
+   allow vendor_perfetto_dump traced_consumer_socket:sock_file { write read };
+   allow vendor_perfetto_dump traced:unix_stream_socket connectto;
+-- 
+2.37.2
+

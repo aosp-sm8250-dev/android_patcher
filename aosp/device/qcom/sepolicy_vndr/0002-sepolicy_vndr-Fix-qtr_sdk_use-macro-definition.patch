@@ -1,0 +1,28 @@
+From 6302cdec1fce4736ae6be29c00786c785261afae Mon Sep 17 00:00:00 2001
+From: LuK1337 <priv.luk@gmail.com>
+Date: Fri, 8 Jul 2022 19:34:25 +0200
+Subject: [PATCH 2/2] sepolicy_vndr: Fix qtr_sdk_use macro definition
+
+Fixes: qvrd_vndr.te:36:WARNING 'unrecognized character'
+
+Change-Id: I2310fa7424149dc5ddc85c28a4b15435f62994b1
+---
+ generic/vendor/kona/te_macros | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/generic/vendor/kona/te_macros b/generic/vendor/kona/te_macros
+index 1d892a6f..5b218673 100644
+--- a/generic/vendor/kona/te_macros
++++ b/generic/vendor/kona/te_macros
+@@ -33,7 +33,7 @@
+ #######################################
+ # Allow domains to use QTR SDK for metric collection
+ # syntax: qtr_sdk_use(clientdomain)
+-define(`qtr_sdk_use',
++define(`qtr_sdk_use', `
+ # qtrsdkservice client for registering & start/stop campaign
+ allow $1 vendor_qtrsdkservice_service:service_manager find;
+ binder_call($1, vendor_qcc_trd)
+-- 
+2.37.2
+
