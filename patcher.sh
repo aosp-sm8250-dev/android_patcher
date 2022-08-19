@@ -11,6 +11,7 @@ REPOS=(
     'hardware/libhardware'
     'hardware/qcom/display'
     'hardware/qcom/media'
+    'hardware/qcom/wlan'
     'hardware/qcom-caf/wlan'
     'vendor/qcom/opensource/audio-hal/primary-hal'
     'vendor/qcom/opensource/data-ipa-cfg-mgr'
