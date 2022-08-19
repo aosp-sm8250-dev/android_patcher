@@ -1,0 +1,45 @@
+From e23b492671d6e21fa157ccde73f468f934bbf830 Mon Sep 17 00:00:00 2001
+From: Steve Kondik <steve@cyngn.com>
+Date: Sun, 28 Dec 2014 02:32:53 -0800
+Subject: [PATCH] wlan-caf: Add guard makefile
+
+Change-Id: I79aacfe2438c0e871cb5a61156524c0de3cb540e
+---
+ Android.mk               | 4 ++++
+ wcnss-service/Android.mk | 4 ++++
+ 2 files changed, 8 insertions(+)
+
+diff --git a/Android.mk b/Android.mk
+index 6695cef..3c542ca 100644
+--- a/Android.mk
++++ b/Android.mk
+@@ -1,6 +1,10 @@
++ifeq ($(call my-dir),$(call project-path-for,qcom-wlan))
++
+ # TODO:  Find a better way to separate build configs for ADP vs non-ADP devices
+ QCOM_WLAN_ROOT := $(call my-dir)
+ 
+ ifneq ($(BOARD_IS_AUTOMOTIVE),true)
+ include $(call all-subdir-makefiles)
+ endif
++
++endif
+diff --git a/wcnss-service/Android.mk b/wcnss-service/Android.mk
+index 550e681..1f8b780 100644
+--- a/wcnss-service/Android.mk
++++ b/wcnss-service/Android.mk
+@@ -1,3 +1,5 @@
++ifeq ($(call my-dir),$(call project-path-for,wlan))
++
+ ifneq (,$(filter arm aarch64 arm64, $(TARGET_ARCH)))
+ LOCAL_PATH := $(call my-dir)
+ include $(CLEAR_VARS)
+@@ -27,3 +29,5 @@ LOCAL_MODULE_TAGS := optional
+ LOCAL_CFLAGS += -Wall -Werror
+ include $(BUILD_EXECUTABLE)
+ endif
++
++endif
+-- 
+2.37.2
+
