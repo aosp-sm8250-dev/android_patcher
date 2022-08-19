@@ -1,4 +1,4 @@
-From 3508fbcbc0f1cd7d42b6f273a4a94b33af7061ab Mon Sep 17 00:00:00 2001
+From 641ac30bfede89736ab56999adae6906eb6c9b3e Mon Sep 17 00:00:00 2001
 From: Michael Bestas <mkbestas@gmail.com>
 Date: Mon, 14 Oct 2019 21:55:42 +0300
 Subject: [PATCH 8/9] check_boot_jars: Add IFAA Manager to whitelist

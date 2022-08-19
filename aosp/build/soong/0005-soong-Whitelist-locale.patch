@@ -1,4 +1,4 @@
-From 8946b4b1f4c3e4514058736c2917a30b0a5b64eb Mon Sep 17 00:00:00 2001
+From bda50c02a39c918e2a309a3a8b4d67331565b0dc Mon Sep 17 00:00:00 2001
 From: "Kevin F. Haggerty" <haggertk@lineageos.org>
 Date: Mon, 27 Apr 2020 12:51:08 -0600
 Subject: [PATCH 5/9] soong: Whitelist locale

@@ -1,4 +1,4 @@
-From 8a2c38cb88c967f2d4054216d7c28ee40fb5da2a Mon Sep 17 00:00:00 2001
+From 8bdafa7f219bd43477d8179f95d939e4175a34dc Mon Sep 17 00:00:00 2001
 From: Danny Lin <danny@kdrag0n.dev>
 Date: Mon, 1 Mar 2021 23:11:06 -0800
 Subject: [PATCH 1/9] Disable clang-tidy

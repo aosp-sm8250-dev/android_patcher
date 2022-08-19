@@ -1,4 +1,4 @@
-From 3229a12ad80491b132d65aac0f5bcf0f295655b6 Mon Sep 17 00:00:00 2001
+From 6e9dc217cb34f9887fb686905d214a5af4b05314 Mon Sep 17 00:00:00 2001
 From: YumeMichi <do4suki@gmail.com>
 Date: Mon, 20 Dec 2021 01:03:56 +0800
 Subject: [PATCH 9/9] check_boot_jars: Add OP bits to whitelist

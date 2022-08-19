@@ -1,4 +1,4 @@
-From 08b1cb29eab468d9fc2bdbb4049154bd6867196e Mon Sep 17 00:00:00 2001
+From 9f93f22b74c55f3d9fc5d65ae78b1fce1af31013 Mon Sep 17 00:00:00 2001
 From: LuK1337 <priv.luk@gmail.com>
 Date: Fri, 13 Nov 2020 15:11:27 +0100
 Subject: [PATCH 4/9] cleanbuild: Add `install` to installclean files

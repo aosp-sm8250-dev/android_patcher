@@ -1,4 +1,4 @@
-From 3349ccd00da4f8b4ac410f5dff225ff7ebcb3317 Mon Sep 17 00:00:00 2001
+From e8ee86f6d148cbd51d0b7b5244bb0579558913e5 Mon Sep 17 00:00:00 2001
 From: LuK1337 <priv.luk@gmail.com>
 Date: Sun, 16 Jan 2022 20:44:58 +0100
 Subject: [PATCH 3/9] Add exported-to-kati namespaces to root namespace
