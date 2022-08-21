@@ -1,0 +1,26 @@
+From 52f3a7ed66dad9df4d158d525b2c242999d817ed Mon Sep 17 00:00:00 2001
+From: Yuan Si <do4suki@gmail.com>
+Date: Mon, 22 Aug 2022 05:12:06 +0800
+Subject: [PATCH] misc: Mark tune2fs as recovery_available
+
+Signed-off-by: Yuan Si <do4suki@gmail.com>
+Change-Id: I35cfed7f28d7960dd0c13492caf088629bda42e5
+---
+ misc/Android.bp | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/misc/Android.bp b/misc/Android.bp
+index 78e18e4..4994cf8 100644
+--- a/misc/Android.bp
++++ b/misc/Android.bp
+@@ -141,6 +141,7 @@ cc_binary {
+     name: "tune2fs",
+     host_supported: true,
+     vendor_ramdisk_available: true,
++    recovery_available: true,
+     defaults: ["tune2fs-defaults"],
+ 
+     shared_libs: tune2fs_libs,
+-- 
+2.37.2
+

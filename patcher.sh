@@ -7,6 +7,7 @@ REPOS=(
     'build/soong'
     'device/qcom/sepolicy'
     'device/qcom/sepolicy_vndr'
+    'external/e2fsprogs'
     'external/tinycompress'
     'frameworks/av'
     'frameworks/native'
