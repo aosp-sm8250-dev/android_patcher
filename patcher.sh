@@ -29,6 +29,7 @@ REPOS=(
 ICONS=(
     'packages/providers/CalendarProvider'
     'packages/providers/ContactsProvider'
+    'packages/apps/Calendar'
     'packages/apps/Dialer'
     'packages/apps/Messaging'
     'packages/apps/Camera2'
