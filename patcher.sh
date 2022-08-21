@@ -26,10 +26,31 @@ REPOS=(
     'vendor/qcom/opensource/vibrator'
 )
 
+ICONS=(
+    'packages/providers/CalendarProvider'
+    'packages/providers/ContactsProvider'
+    'packages/apps/Dialer'
+    'packages/apps/Messaging'
+    'packages/apps/Camera2'
+    'packages/apps/DeskClock'
+    'packages/apps/Contacts'
+    'packages/apps/DocumentsUI'
+    'packages/apps/Gallery2'
+    'packages/apps/Settings'
+)
+
 for repo in "${REPOS[@]}"; do
     cd "${ROOT}/${repo}"
 
     git am --keep-cr "${ROOT}/patcher/aosp/${repo}"/*
+
+    cd "${ROOT}"
+done
+
+for icon in "${ICONS[@]}"; do
+    cd "${ROOT}/${icon}"
+
+    git am --keep-cr "${ROOT}/patcher/icons/${icon}"/*
 
     cd "${ROOT}"
 done
